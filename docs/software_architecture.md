@@ -9,13 +9,13 @@
 flowchart TB
     User["ユーザー"]
 
-    subgraph Frontend["フロントエンド"]
+    subgraph Frontend["フロントエンド - Vue.js/TypeScript"]
         UI["Web UI"]
         Client["APIクライアント"]
         UI --> Client
     end
 
-    subgraph Backend["バックエンド"]
+    subgraph Backend["バックエンド - Go"]
         Router["APIルーター"]
         Auth["認証サービス"]
         App["アプリケーションサービス"]
@@ -26,7 +26,7 @@ flowchart TB
     end
 
     subgraph Infrastructure["インフラストラクチャ"]
-        DB[("データベース")]
+        DB[("データベース - mysql")]
         Cache[("キャッシュ")]
     end
 
