@@ -17,10 +17,8 @@ flowchart TB
 
     subgraph Backend["バックエンド - Go"]
         Router["APIルーター"]
-        Auth["認証サービス"]
         App["アプリケーションサービス"]
         Repo["リポジトリ"]
-        Router --> Auth
         Router --> App
         App --> Repo
     end
@@ -32,7 +30,6 @@ flowchart TB
 
     User --> UI
     Client -->|"HTTPS / JSON"| Router
-    Auth --> DB
     Repo --> DB
     App --> Cache
 
