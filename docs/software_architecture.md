@@ -9,7 +9,7 @@
 flowchart TB
     User["ユーザー"]
 
-    subgraph Frontend["フロントエンド - Vue.js/TypeScript"]
+    subgraph Frontend["フロントエンド - Vue.js-VueFlow/TypeScript"]
         UI["Web UI"]
         Client["APIクライアント"]
         UI --> Client
