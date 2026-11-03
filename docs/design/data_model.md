@@ -1,2 +1,2 @@
-# JugTechTree最新設計
+# 最新設計
 
