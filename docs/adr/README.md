@@ -2,6 +2,9 @@
 
 ```markdown
 # タイトル
+
+## 状況（Status）
+
 ## 状況（Context
 ：なぜこの決定が必要になったか
 ## 決定（Decision）
