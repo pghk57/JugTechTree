@@ -2,6 +2,7 @@
 
 ```markdown
 # タイトル
+yyyy/mm/dd
 
 ## 状況（Status）
 
