@@ -7,12 +7,12 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3306:3306" # local : container
+      - "127.0.0.1:3306:3306" # local : container
     volumes:
       - db-data:/var/lib/mysql
       - ./db/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
       interval: 5s
       retries: 10
 
