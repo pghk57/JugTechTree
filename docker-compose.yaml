@@ -16,5 +16,27 @@ services:
       interval: 5s
       retries: 10
 
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app
+    environment:
+      DB_HOST: db
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healty
+  
+  forntend:
+    image: node:26
+    working_dir: /app
+    command: npm run dev -- --host 0.0.0.0
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "127.0.0.1:5173:5173"
+
 volumes:
   db-data:

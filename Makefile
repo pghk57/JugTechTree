@@ -4,5 +4,8 @@ sql_shell:
 docker_run:
 	docker compose up -d
 
+docker_log:
+	docker compose logs -f
+
 docker_down:
 	docker compose down
