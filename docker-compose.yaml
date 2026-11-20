@@ -31,7 +31,7 @@ services:
       - "127.0.0.1:8080:8080"
   
   frontend:
-    image: node:26
+    image: node:26.8.1
     working_dir: /app
     command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
     volumes:
