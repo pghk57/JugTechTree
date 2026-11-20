@@ -1,0 +1,25 @@
+name: Lint
+
+# いつ動かすか
+on:
+  pull_request:          # PR を作ったとき・更新したとき
+  push:
+    branches: [main]     # main に push されたとき
+
+jobs:
+  frontend-lint:
+    runs-on: ubuntu-latest           # GitHub が用意する Linux マシン
+    defaults:
+      run:
+        working-directory: frontend  # 以下のコマンドは frontend/ で実行する
+    steps:
+      - uses: actions/checkout@v5    # リポジトリのコードを取ってくる
+      - uses: actions/setup-node@v5  # Node.js を用意する
+        with:
+          node-version: frontend/.nvmrc
+          cache: npm                 # node_modules のダウンロードを速くする
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci                  # package-lock.json どおりにインストールする
+      - run: npx oxlint .
+      - run: npx eslint .
+      - run: npx prettier --check src/
